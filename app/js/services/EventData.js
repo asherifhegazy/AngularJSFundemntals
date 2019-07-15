@@ -13,9 +13,25 @@ eventsApp.factory('eventData',function ($resource) {
             return resource.get({id:1});
         },
 
-        save: function (event) {
-            event.id = 999;
-            return resource.save(event);
+        // save: function (event) {
+        //     return $resource('/data/event').save(event);
+        // }
+
+        save: function (event, success, error) {
+            var events = $resource('/data/event').query();
+            events.$promise.then(function (response) {
+                event.id = response.length+1;
+                resource.save(event)
+                    .$promise
+                    .then(function (resp) {
+                        success(resp);
+                    })
+                    .catch(function (resp) {
+                        error(resp);
+                    });
+            });
+
+
         }
     };
 });

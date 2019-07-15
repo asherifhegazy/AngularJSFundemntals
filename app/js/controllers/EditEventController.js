@@ -3,15 +3,24 @@
 eventsApp.controller('EditEventController', function ($scope,eventData) {
     $scope.saveEvent = function (event,newEventForm) {
         if(newEventForm.$valid) {
-            eventData.save(event)
-                .$promise
-                .then(function (response) {
+            eventData.save(event,
+                function success(response) {
                     console.log('Success ', response);
-                })
-                .catch(function (response) {
+            },
+                function error(response) {
                     console.log('Failure', response);
-                });
+            });
         }
+        // if(newEventForm.$valid) {
+        //     eventData.save(event)
+        //         .$promise
+        //         .then(function (response) {
+        //             console.log('Success ', response);
+        //         })
+        //         .catch(function (response) {
+        //             console.log('Failure', response);
+        //         });
+        // }
     };
 
     $scope.cancelEdit = function () {
