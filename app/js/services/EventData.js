@@ -30,8 +30,17 @@ eventsApp.factory('eventData',function ($resource) {
                         error(resp);
                     });
             });
+        },
 
-
+        update: function (event, success, error) {
+            resource.save(event)
+                .$promise
+                .then(function (resp) {
+                    success(resp);
+                })
+                .catch(function (resp) {
+                    error(resp);
+                });
         }
     };
 });

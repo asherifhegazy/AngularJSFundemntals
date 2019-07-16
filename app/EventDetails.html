@@ -7,11 +7,14 @@
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body ng-cloak>
-<div class="navbar">
+<div ng-controller="NavbarController" class="navbar">
     <div class="navbar-inner">
         <ul class="nav">
             <li><a href="/EventDetails.html">Home</a></li>
             <li><a href="/NewEvent.html">Create Event</a></li>
+            <li><a href="/EditProfile.html">Edit Profile</a></li>
+            <li><a ng-hide="isUserLoggedIn" href="/Login.html">Login</a></li>
+            <li><a href="#" ng-show="isUserLoggedIn" ng-click="logout()">Logout</a></li>
         </ul>
     </div>
 </div>
@@ -88,7 +91,9 @@
 <script src="lib/angular/angular-cookies.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers/EventController.js"></script>
+<script src="js/controllers/NavbarController.js"></script>
 <script src="js/services/EventData.js"></script>
+<script src="js/services/UserData.js"></script>
 <script src="js/filters.js"></script>
 </body>
 </html>

@@ -6,9 +6,11 @@ eventsApp.controller('EditEventController', function ($scope,eventData) {
             eventData.save(event,
                 function success(response) {
                     console.log('Success ', response);
+                    window.alert("Success");
             },
                 function error(response) {
                     console.log('Failure', response);
+                    window.alert("Failure");
             });
         }
         // if(newEventForm.$valid) {
