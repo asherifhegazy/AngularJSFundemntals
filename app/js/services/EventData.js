@@ -9,8 +9,8 @@
 eventsApp.factory('eventData',function ($resource) {
     var resource = $resource('/data/event/:id',{id:'@id'});
     return {
-        getEvent: function () {
-            return resource.get({id:1});
+        getEvent: function (eventId) {
+            return resource.get({id:eventId});
         },
 
         // save: function (event) {
@@ -41,6 +41,10 @@ eventsApp.factory('eventData',function ($resource) {
                 .catch(function (resp) {
                     error(resp);
                 });
+        },
+        
+        getAllEvents: function () {
+            return resource.query();
         }
     };
 });

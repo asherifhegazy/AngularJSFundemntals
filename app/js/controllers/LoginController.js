@@ -8,9 +8,7 @@ eventsApp.controller('LoginController',function ($scope, userData, $cookieStore)
             .$promise
             .then(function (user) {
                 if(user.password === $scope.user.password){
-                    // $cookieStore.put('username',$scope.user.username);
                     $cookieStore.put('user',JSON.stringify(user));
-                    // console.log(user);
                     window.alert('Welcome ' + $scope.user.username);
                     window.location = "/EventDetails.html";
                 }
@@ -24,6 +22,6 @@ eventsApp.controller('LoginController',function ($scope, userData, $cookieStore)
    };
 
    $scope.cancelLogin = function () {
-       window.location = "/EventDetails.html";
+       window.location = "events";
    };
 });

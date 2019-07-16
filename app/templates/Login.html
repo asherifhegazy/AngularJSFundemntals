@@ -1,0 +1,16 @@
+<div class="container">
+    <div style="padding:20px;">
+
+        <form>
+            <fieldset>
+                <label for="userName">Username: </label>
+                <input type="text" id="userName" ng-model="user.username" placeholder="Enter Your Username" required/>
+                <label for="password">Password: </label>
+                <input type="password" id="password" ng-model="user.password" placeholder="Enter Your Password" required/>
+            </fieldset>
+
+            <button class="btn btn-primary" type="submit" ng-click="login()">Login</button>
+            <button class="btn btn-default" type="button" ng-click="cancelLogin()">Cancel</button>
+        </form>
+    </div>
+</div>
