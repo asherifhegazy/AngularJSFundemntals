@@ -13,9 +13,6 @@ eventsApp.controller('EventController', function ($scope, eventData, $anchorScro
         });
 
     $scope.upVoteSession = function (session) {
-        // $cookieStore.remove('session' + session.id);
-        // $cookieStore.remove('user');
-
         if (isUserLoggedIn()) {
             var user = JSON.parse($cookieStore.get('user'));
             userData.getUser(user.userName)
@@ -100,12 +97,11 @@ eventsApp.controller('EventController', function ($scope, eventData, $anchorScro
         $anchorScroll();
     };
 
-    function isVoted(sessionId) {
-        return $cookieStore.get('session' + sessionId);
-    }
+    // function isVoted(sessionId) {
+    //     return $cookieStore.get('session' + sessionId);
+    // }
 
     function isUserLoggedIn() {
-        // return $cookieStore.get('username');
         return $cookieStore.get('user');
     }
 
