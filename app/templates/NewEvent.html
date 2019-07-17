@@ -1,5 +1,6 @@
-
-<style>input.ng-invalid.ng-dirty {background-color: pink}</style>
+<style>input.ng-invalid.ng-dirty {
+    background-color: pink
+}</style>
 <div style="padding-left: 20px;padding-right: 20px;">
     <div class="container">
         <h1>New Event</h1>
@@ -10,8 +11,11 @@
                 <input type="text" id="eventName" required ng-pattern="namePattern" ng-model="event.name"
                        placeholder="Name of your event..."/>
                 <label for="eventDate">Event Date:</label>
-                <input type="text" id="eventDate" required date-picker date-keys ng-pattern="datePattern" ng-model="event.date"
-                       placeholder="format (mm/dd/yyyy)..."/>
+                <div style="position: relative">
+                    <input type="text" id="eventDate" required date-keys ng-pattern="datePattern" ng-model="event.date"
+                           placeholder="format (mm/dd/yyyy)..."/>
+                    <date-picker for="eventDate"/>
+                </div>
                 <label for="eventTime">Event Time:</label>
                 <input type="text" id="eventTime" required ng-pattern="numbersPattern" ng-model="event.time"
                        placeholder="in hours..."/>
