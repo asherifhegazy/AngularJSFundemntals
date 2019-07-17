@@ -1,60 +1,8 @@
 <div class="container" style="padding-left: 20px;padding-right: 20px;">
-    <img ng-src="{{event.imageUrl}}" alt="{{event.name}}"/>
-
-    <div class="row" style="margin-top: 20px;">
-        <button class="btn" ng-click="reload()">Reload</button>
-    </div>
-    <div class="row">
-        <div class="span11">
-            <h2>{{event.name | uppercase}}</h2>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="span3">
-            <div><strong>Date: </strong>{{event.date | date:'mediumDate'}}</div>
-            <div><strong>Time: </strong>{{event.time}}</div>
-            <div><strong>Price: </strong>{{34 | currency}}</div>
-        </div>
-        <div class="span4">
-            <address>
-                <strong>Address:</strong> <br>
-                {{event.location.address}} <br>
-                {{event.location.city}}, {{event.location.province}}
-            </address>
-        </div>
-    </div>
+    <event-details event="event">
+    </event-details>
 
     <hr>
 
-    <h3>Sessions</h3>
-    Order By:
-    <select ng-model="sortorder" class="input-small">
-        <option selected value="name">Name</option>
-        <option value="-upVoteCount">Votes</option>
-    </select>
-    Show:
-    <select ng-model="query.level" class="input-medium">
-        <option selected value="">All</option>
-        <option value="introductory">Introductory</option>
-        <option value="intermediate">Intermediate</option>
-        <option value="advanced">Advanced</option>
-    </select>
-    <ul class="thumbnails">
-        <li ng-repeat="session in event.sessions | orderBy:sortorder | limitTo:3 | filter:query" id="session{{session.id}}">
-            <div class="row session">
-                <upvote upvote="upVoteSession(session)" downvote="downVoteSession(session)"
-                        count="session.upVoteCount"/>
-
-                <div class="well span9">
-                    <collapsible title="{{session.name}}">
-                        <h6 style="margin-top:-10px;">{{session.creatorName}}</h6>
-                        <span>Duration: {{session.duration | durations}}</span> <br>
-                        <span>Level: <span ng-bind-html="session.level | levelIcon"></span></span>
-                        <p>{{session.abstract}}</p>
-                    </collapsible>
-                </div>
-            </div>
-        </li>
-    </ul>
+    <session-thumbnail event="event"/>
 </div>
