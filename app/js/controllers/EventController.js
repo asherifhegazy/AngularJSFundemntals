@@ -1,16 +1,18 @@
 'use strict';
 
-eventsApp.controller('EventController', function ($scope, eventData, $anchorScroll, $cookieStore, userData) {
+eventsApp.controller('EventController', function ($scope, eventData, $cookieStore, userData, $routeParams, $route) {
     $scope.sortorder = 'name';
 
-    eventData.getEvent()
-        .$promise
-        .then(function (event) {
-            $scope.event = event;
-        })
-        .catch(function (response) {
-            console.log(response);
-        });
+    // eventData.getEvent($routeParams.eventId)
+    //     .$promise
+    //     .then(function (event) {
+    //         $scope.event = event;
+    //     })
+    //     .catch(function (response) {
+    //         console.log(response);
+    //     });
+
+    $scope.event = $route.current.locals.event;
 
     $scope.upVoteSession = function (session) {
         if (isUserLoggedIn()) {
@@ -79,31 +81,12 @@ eventsApp.controller('EventController', function ($scope, eventData, $anchorScro
         }
     };
 
-    // $scope.upVoteSession = function (session) {
-    //     if (isVoted(session.id) === undefined) {
-    //         $cookieStore.put('session' + session.id, true);
-    //         session.upVoteCount++;
-    //     }
-    // };
-    //
-    // $scope.downVoteSession = function (session) {
-    //     if (isVoted(session.id) === undefined) {
-    //         $cookieStore.put('session' + session.id, true);
-    //         session.upVoteCount--;
-    //     }
-    // };
-
-    $scope.scrollToSession = function () {
-        $anchorScroll();
-    };
-
-    // function isVoted(sessionId) {
-    //     return $cookieStore.get('session' + sessionId);
-    // }
-
     function isUserLoggedIn() {
         return $cookieStore.get('user');
     }
 
+    $scope.reload = function () {
+        $route.reload();
+    }
 
 });

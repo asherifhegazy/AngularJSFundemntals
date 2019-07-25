@@ -26,17 +26,15 @@ eventsApp.controller('EditProfileController',
         $scope.saveUser = function () {
             userData.save($scope.user,
                 function success(response) {
-                    console.log('success ', response);
                     window.alert("Success");
                 },
                 function error(response) {
-                    console.log('failure ', response);
                     window.alert("Failure");
                 });
         };
 
         $scope.cancelEdit = function () {
-            window.location = "/EventDetails.html";
+            window.location = "events";
         };
     }
 );

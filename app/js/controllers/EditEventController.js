@@ -26,7 +26,7 @@ eventsApp.controller('EditEventController', function ($scope,eventData) {
     };
 
     $scope.cancelEdit = function () {
-        window.location = "/EventDetails.html";
+        window.location = "events";
     };
 
     $scope.namePattern = /^(?:[A-Za-z]+)(?:[A-Za-z0-9 _]*)$/;
