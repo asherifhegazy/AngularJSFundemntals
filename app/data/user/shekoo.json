@@ -1,11 +1,1 @@
-{
-  "sessionsVotes": [
-    "session1",
-    "session2"
-  ],
-  "userName": "shekoo",
-  "password": "123456",
-  "name": "Ahmed Sherif",
-  "emailAddress": "ahmed.sherif.fci@gmail.com",
-  "bio": "Ya la el hawl"
-}
+{"sessionsVotes":["session2"],"userName":"shekoo","password":"123456","name":"Ahmed Sherif","emailAddress":"ahmed.sherif.fci@gmail.com","bio":"Ya la el hawl"}
